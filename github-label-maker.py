@@ -37,11 +37,11 @@ class GitHub:
         log.info("connected to repository '%s/%s'", owner.login, self.repo.name)
 
     def add_label(self, name, color, description=None):
-        log.info("creating label '%s', color '%s', description '%s'", name, color, description)
         if color.startswith('#'):
             color = color[1:]
         if not description:
             description = github.GithubObject.NotSet
+        log.info("creating label '%s'", name)
         return self.repo.create_label(name, color, description)
 
     def add_labels(self, labels):
