@@ -1,4 +1,4 @@
-# github-label-maker.py for easy sane labels making for GitHub projects
+# github-label-maker.py - sane labels for GitHub easily
 #
 # Written by Mateusz Loskot <mateusz at loskot dot net>
 #
@@ -36,17 +36,22 @@ class GitHub:
         self.repo = owner.get_repo(github_repo_name)
         log.info("connected to repository '%s/%s'", owner.login, self.repo.name)
 
-    def add_label(self, name, color):
-        log.info("creating label '%s', color '%s'", name, color)
+    def add_label(self, name, color, description=None):
+        log.info("creating label '%s', color '%s', description '%s'", name, color, description)
         if color.startswith('#'):
             color = color[1:]
-        return self.repo.create_label(name, color)
+        if not description:
+            description = github.GithubObject.NotSet
+        return self.repo.create_label(name, color, description)
 
     def add_labels(self, labels):
         for label in labels:
             assert 'name' in label
             assert 'color' in label
-            self.add_label(label['name'], label['color'])
+            description = None
+            if 'description' in label:
+                description = label['description']
+            self.add_label(label['name'], label['color'], description)
 
     def delete_labels(self):
         for label in self.repo.get_labels():
@@ -55,8 +60,11 @@ class GitHub:
 
     def dump_labels(self):
         labels = []
-        for label in self.repo.get_labels():
+        repo_labels = self.repo.get_labels()
+        for label in repo_labels:
             entry = { "name" : label.name, "color": "#{0}".format(label.color) }
+            if label.description is not github.GithubObject.NotSet:
+                entry['description'] = label.description
             labels.append(entry)
         return labels
 
