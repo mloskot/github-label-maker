@@ -1,4 +1,4 @@
-# github-label-maker.py - sane labels for GitHub easily
+# github-label-maker.py - sane labels for GitHub made easy
 #
 # Written by Mateusz Loskot <mateusz at loskot dot net>
 #
@@ -16,18 +16,17 @@ log = logging.getLogger('glm')
 
 class GitHub:
     def __init__(self, github_token, github_owner_name, github_repo_name):
-        assert isinstance(github_token, str)
         assert isinstance(github_owner_name, str)
         assert isinstance(github_repo_name, str)
 
         g = github.Github(github_token)
         assert g.get_user().login
-        
+
         log.info("authorized to github as user '%s'", g.get_user().login)
         rate_limit = g.get_rate_limit()
         log.info('rate limit=%d, remaining=%d', rate_limit.rate.limit, rate_limit.rate.remaining)
-        
-        # Repo either owned by user or one of user's organization
+
+        # Repository either owned by user or one of user's organization
         orgs = [org.login for org in g.get_user().get_orgs()]
         if github_owner_name in orgs:
             owner = g.get_organization(github_owner_name)
@@ -104,8 +103,9 @@ if __name__ == "__main__":
         log.info('reading GITHUB_ACCESS_TOKEN environment variable')
         args.token = os.environ['GITHUB_ACCESS_TOKEN']
 
+    assert args.token, "GitHub token is required for successfull authentication"
     assert args.dump_labels_to or args.make_labels_from
-    
+
     if args.dump_labels_to:
         dump_file = args.dump_labels_to
         assert dump_file.endswith('json')
