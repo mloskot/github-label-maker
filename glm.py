@@ -96,19 +96,36 @@ def clear(github_token, github_owner, github_repo, labels_from=None):
         pass
 
 def make(github_token, github_owner, github_repo, labels_from, append_mode=False):
+    assert labels_from
+    if isinstance(labels_from, dict):
+        labels_def = [labels_from]
+    else:
+        labels_def = labels_from
+        assert isinstance(labels_from, list)
+        assert isinstance(labels_from[0], dict)
     hub = GithubLabelMaker(github_token, github_owner, github_repo)
     if not append_mode:
         hub.delete_labels()
+    hub.add_labels(labels_def)
+
+def make_from_files(github_token, github_owner, github_repo, labels_from, append_mode=False):
     for _, labels_file in labels_from.items():
         log.info("creating labels from '%s'", labels_file)
         with open(labels_file, 'r') as f:
             labels_def = json.load(f)
-            hub.add_labels(labels_def)
+            make(github_token, github_owner, github_repo, labels_def, append_mode)
 
-def dump(github_token, github_owner, github_repo, labels_to):
+def dump(github_token, github_owner, github_repo):
     hub = GithubLabelMaker(github_token, github_owner, github_repo)
     labels_def = hub.get_labels()
-    log.info("dumping labels to '%s'", labels_to)
-    with open(labels_to, 'w') as f:
-        labels_def = json.dumps(labels_def, indent=2)
-        f.write(labels_def)
+    return labels_def
+
+def dump_to_file(github_token, github_owner, github_repo, labels_to):
+    labels_def = dump(github_token, github_owner, github_repo)
+    if labels_def:
+        log.info("dumping labels to '%s'", labels_to)
+        with open(labels_to, 'w') as f:
+            labels_def = json.dumps(labels_def, indent=2)
+            f.write(labels_def)
+    else:
+        log.info("no labels to dump to '%s'", labels_to)
