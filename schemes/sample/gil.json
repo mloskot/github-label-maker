@@ -1,0 +1,97 @@
+[
+  {
+    "name": "cat/annoyance",
+    "color": "#8801c1",
+    "description": null
+  },
+  {
+    "name": "cat/bug",
+    "color": "#ff0000",
+    "description": null
+  },
+  {
+    "name": "cat/documentation",
+    "color": "#AFEEEE",
+    "description": null
+  },
+  {
+    "name": "cat/enhancement",
+    "color": "#9ACD32",
+    "description": null
+  },
+  {
+    "name": "cat/feature",
+    "color": "#008000",
+    "description": null
+  },
+  {
+    "name": "cat/question",
+    "color": "#7FFFD4",
+    "description": null
+  },
+  {
+    "name": "cat/refactoring",
+    "color": "#f79651",
+    "description": null
+  },
+  {
+    "name": "ext/dynamic_image",
+    "color": "#00BFFF",
+    "description": null
+  },
+  {
+    "name": "ext/io",
+    "color": "#00BFFF",
+    "description": null
+  },
+  {
+    "name": "ext/numeric",
+    "color": "#00BFFF",
+    "description": null
+  },
+  {
+    "name": "ext/toolbox",
+    "color": "#00BFFF",
+    "description": null
+  },
+  {
+    "name": "status/duplicate",
+    "color": "#E6E6E6",
+    "description": null
+  },
+  {
+    "name": "status/invalid",
+    "color": "#E6E6E6",
+    "description": null
+  },
+  {
+    "name": "status/need-feedback",
+    "color": "#FBCA04",
+    "description": null
+  },
+  {
+    "name": "status/need-help",
+    "color": "#FBCA04",
+    "description": null
+  },
+  {
+    "name": "status/need-minimal-example",
+    "color": "#FBCA04",
+    "description": null
+  },
+  {
+    "name": "status/wontfix",
+    "color": "#E6E6E6",
+    "description": null
+  },
+  {
+    "name": "version/gil-2.1",
+    "color": "#DAA520",
+    "description": null
+  },
+  {
+    "name": "version/gil-2.2",
+    "color": "#DAA520",
+    "description": null
+  }
+]
