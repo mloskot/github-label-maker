@@ -23,7 +23,7 @@ class GithubLabelMaker:
 
         logging.info("authorized to github as user '{0}'".format(g.get_user().login))
         rate_limit = g.get_rate_limit()
-        logging.info('rate limit={0}, remaining={1}'.format(rate_limit.rate.limit, rate_limit.rate.remaining))
+        logging.info('rate limit={0}, remaining={1}'.format(rate_limit.core.limit, rate_limit.core.remaining))
 
         # Repository either owned by user or one of user's organization
         orgs = [org.login for org in g.get_user().get_orgs()]
