@@ -1,7 +1,11 @@
+# standard lib
 import os
 import unittest
 import warnings
-import glm
+
+# this package
+from gh_label_maker import glm
+
 
 def ignore_requests_warnings(test_func):
     def do_test(self, *args, **kwargs):

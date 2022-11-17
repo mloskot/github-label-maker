@@ -20,3 +20,16 @@ If it is not, there are three modes of operation:
   * from single file `--make-labels-from=/my/scheme/default.json`
   * from multiple files `--make-labels-from=/my/scheme`
 * dump all labels using `--dump-labels-to=/my/labels.json`
+
+## Contribute
+
+```bash
+# get the source
+git clone https://github.com/mloskot/github-label-maker.git
+
+# install source in editable mode 
+cd github-label-maker
+pip install -e .
+
+# develop and make a pull request!
+```
