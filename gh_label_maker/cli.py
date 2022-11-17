@@ -13,8 +13,7 @@ import os
 # this package
 from gh_label_maker import glm
 
-
-if __name__ == "__main__":
+def run():
     p = argparse.ArgumentParser(description='Make GitHub labels from definitions in labels/*.json or restore GitHub defaults from labels/default.json')
     p.add_argument('-v', '--verbose', help='Turn off verbose logging', action='store_true')
     p.add_argument('-o', '--owner', help='GitHub repository owner', required=True)
@@ -72,3 +71,7 @@ if __name__ == "__main__":
             with open(labels_file, 'r') as f:
                 labels_def = json.load(f)
                 hub.update_labels(labels_def)
+
+
+if __name__ == "__main__":
+    run()
