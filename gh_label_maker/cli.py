@@ -3,13 +3,16 @@
 # Written by Mateusz Loskot <mateusz at loskot dot net>
 #
 # This is free and unencumbered software released into the public domain.
-#
+
+# std lib
 import argparse
 import json
 import logging
 import os
-import sys
-import glm
+
+# this package
+from gh_label_maker import glm
+
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description='Make GitHub labels from definitions in labels/*.json or restore GitHub defaults from labels/default.json')
