@@ -7,7 +7,11 @@ Python module and script to manage GitHub labels the saner way:
 
 ## Requirements
 
-* [PyGithub](https://github.com/PyGithub/PyGithub) 1.39+ with [PR#738](https://github.com/PyGithub/PyGithub/pull/738)
+* [PyGithub](https://github.com/PyGithub/PyGithub) 1.56
+
+## Installation
+
+`pip install gh-label-maker`
 
 ## Usage
 
