@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="gh_label_maker",
-    version="0.0.1",
+    version="0.0.2",
     description="CLI tool for managing github labels",
     packages=["gh_label_maker"],
     install_requires=["PyGithub==1.56"],
