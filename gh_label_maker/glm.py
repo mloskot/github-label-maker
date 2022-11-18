@@ -31,7 +31,8 @@ class GithubLabelMaker:
             owner = g.get_organization(github_owner_name)
         else:
             owner = g.get_user()
-        self._repo = owner.get_repo(github_repo_name)
+        repos = owner.get_repos()
+        self._repo = [repo for repo in repos if github_repo_name == repo.name][0]
         logging.info("connected to repository '{0}/{1}'".format(owner.login, self._repo.name))
 
     def _find_label(self, name):
