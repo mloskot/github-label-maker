@@ -37,3 +37,7 @@ pip install -e .
 
 # develop and make a pull request!
 ```
+
+## Credits
+
+- [@GlennWSo](https://github.com/GlennWSo) contributed fixes, release and package for PIP
