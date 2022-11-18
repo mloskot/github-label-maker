@@ -9,5 +9,5 @@ setup(
     entry_points={
         "console_scripts": ['gh_label_maker=gh_label_maker.cli:run']
     },
-    classifiers=["Programing Language :: Python :: 3.10"]
+    classifiers=["Programming Language :: Python :: 3.10"]
 )

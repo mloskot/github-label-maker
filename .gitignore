@@ -1,3 +1,6 @@
+#pypi
+.pypitoken
+
 __pycache__/
 *.py[cod]
 .env/
